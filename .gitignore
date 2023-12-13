@@ -10,6 +10,10 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+sts-3.9.18.RELEASE/
+zulu11/
+apache-tomcat-9.0.84/
+
 # Package Files #
 *.jar
 *.war

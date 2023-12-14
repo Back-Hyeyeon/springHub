@@ -14,6 +14,16 @@ public class LgTV implements TV{
 //	public void speakerDown() {
 //		
 //	}
+	
+	public void initMethod() {
+		//applicationContext.xml 의 init
+		System.out.println("lgTv의 initMethod 함수입니다");
+	}
+	public void destroyMethod() {
+		//applicationContext.xml 의 init
+		System.out.println("lgTv의 destroyMethod 함수입니다");
+	}
+	
 	@Override
 	public void powerOn() {
 		System.out.println("LgTV  on");

@@ -1,10 +1,15 @@
 package com.mire.biz.tv;
 
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
 public class TVUser {
 // 다현성이 나왔다.
 	public static void main(String[] args) {
-		BeanFactory bf = new BeanFactory();
-		TV tv = (TV) bf.getBean(args[0]);
+		
+		AbstractApplicationContext gen = new GenericXmlApplicationContext("applicationContext.xml");
+		
+		TV tv = (TV) gen.getBean("tv");
 		tv.powerOn();
 		tv.powerOff();
 		tv.volumeUp();

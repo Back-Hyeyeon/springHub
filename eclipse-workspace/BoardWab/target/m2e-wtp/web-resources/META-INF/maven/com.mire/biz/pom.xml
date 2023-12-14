@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-=======
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
->>>>>>> fae6294ac812d1b4310c2e71ada1373332da2bae
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mire</groupId>
 	<artifactId>biz</artifactId>
-	<name>BoardWab</name>
+	<name>BoardWeb</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -29,11 +24,7 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
-<<<<<<< HEAD
-				</exclusion>
-=======
 				 </exclusion>
->>>>>>> fae6294ac812d1b4310c2e71ada1373332da2bae
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -41,23 +32,14 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-<<<<<<< HEAD
-
-=======
 				
->>>>>>> fae6294ac812d1b4310c2e71ada1373332da2bae
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
-<<<<<<< HEAD
-		</dependency>
-
-=======
 		</dependency>	
 		
->>>>>>> fae6294ac812d1b4310c2e71ada1373332da2bae
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -77,21 +59,12 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-<<<<<<< HEAD
-			<!-- <groupId>log4j</groupId> 
-			<artifactId>log4j</artifactId> 
-			<version>1.2.15</version> -->
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.12.1</version>
-=======
 			<!-- <groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.15</version> -->
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
-			<version>2.12.1</version> 
->>>>>>> fae6294ac812d1b4310c2e71ada1373332da2bae
+			<version>2.12.1</version>
 			<exclusions>
 				<exclusion>
 					<groupId>javax.mail</groupId>
@@ -119,11 +92,7 @@
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
-<<<<<<< HEAD
-
-=======
 				
->>>>>>> fae6294ac812d1b4310c2e71ada1373332da2bae
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -142,59 +111,13 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-<<<<<<< HEAD
-
-=======
 	
->>>>>>> fae6294ac812d1b4310c2e71ada1373332da2bae
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-<<<<<<< HEAD
-		</dependency>
-	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9</version>
-				<configuration>
-					<additionalProjectnatures>
-						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-					</additionalProjectnatures>
-					<additionalBuildcommands>
-						<buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
-					</additionalBuildcommands>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>true</downloadJavadocs>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.5.1</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<compilerArgument>-Xlint:all</compilerArgument>
-					<showWarnings>true</showWarnings>
-					<showDeprecation>true</showDeprecation>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.2.1</version>
-				<configuration>
-					<mainClass>org.test.int1.Main</mainClass>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-=======
 		</dependency>        
 	</dependencies>
     <build>
@@ -235,5 +158,4 @@
             </plugin>
         </plugins>
     </build>
->>>>>>> fae6294ac812d1b4310c2e71ada1373332da2bae
 </project>

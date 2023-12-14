@@ -24,6 +24,7 @@ public class CollectionMapBeanClient {
 			System.out.println(data.toString() + map.get(data));
 
 		}
+		gen.close();
 	}
 
 }

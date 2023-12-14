@@ -1,5 +1,8 @@
 package com.mire.biz.tv;
 
+import org.springframework.stereotype.Component;
+
+
 public class LgSpeaker implements Speaker {
 
 	public LgSpeaker() {

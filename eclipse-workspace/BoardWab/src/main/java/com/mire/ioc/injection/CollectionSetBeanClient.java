@@ -16,5 +16,6 @@ public class CollectionSetBeanClient {
 		for (String data : set) {
 			System.out.println(data.toString());
 		}
+		gen.close();
 	}
 }

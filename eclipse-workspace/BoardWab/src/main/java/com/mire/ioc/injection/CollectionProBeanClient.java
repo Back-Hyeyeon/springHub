@@ -18,5 +18,6 @@ public class CollectionProBeanClient {
 		for (Object data : is) {
 			System.out.println(data.toString() +"   "+ pro.get(data));
 		}
+		gen.close();
 	}
 }

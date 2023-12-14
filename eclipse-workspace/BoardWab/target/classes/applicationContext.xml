@@ -2,66 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<bean id="collectionListBean"
-		class="com.mire.ioc.injection.CollectionListBean">
-		<property name="addressList">
-			<list>
-				<value>서울시 강남구 역삼동</value>
-				<value>서울시 성동구 행당동</value>
-			</list>
-		</property>
-	</bean>
+<!-- component: 객체 , scan: 검색 , base-package: 패키지로 -->
+	<context:component-scan base-package="com.mire.biz"></context:component-scan>
+	<bean class="com.mire.biz.tv.LgSpeaker"></bean>
 
-
-	<bean id="collectionSetBean"
-		class="com.mire.ioc.injection.CollectionSetBean">
-		<property name="addressSet">
-			<set value-type="java.lang.String">
-				<value>부산 사상구 중동동</value>
-				<value>부산 해운대구 앞바다</value>
-			</set>
-		</property>
-	</bean>
 	
-	
-	<bean id="collectionMapBean"
-		class="com.mire.ioc.injection.CollectionMapBean">
-		<property name="addressMap">
-			<map>
-				<entry>
-					<key>
-						<value>정상체</value>
-					</key>
-					<value>경상남도 거제시 장평동 </value>
-				</entry>
-				<entry>
-					<key>
-						<value>백혜연</value>
-					</key>
-					<value>경상남도 통영시 대둔동</value>
-				</entry>
-				<entry>
-					<key>
-						<value>백진호</value>
-					</key>
-					<value>경상남도 통영시 욕지도</value>
-				</entry>
-			</map>
-		</property>
-	</bean>
-
-
-<bean id="collectionProBean"
-		class="com.mire.ioc.injection.CollectionPorBean">
-		<property name="addressPro">
-			<props>
-				<prop key="정 남 길">장남구 리얼동</prop>
-				<prop key="이 정 수">이동구 동진동</prop>
-			</props>
-		</property>
-	</bean>
 
 </beans>
 
@@ -70,6 +19,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 어노테이션과 XML 설정 병행 -->
+<!-- <context:component-scan base-package="com.mire.biz"></context:component-scan>
+	<bean class="com.mire.biz.tv.LgSpeaker"></bean> -->
+
+
+<!-- 컬렉션프레임워크 xml -->
 <!-- List -->
 <!-- <bean id="collectionListBean" class="com.mire.ioc.injection.CollectionListBean" 
 	> <property name="addressList"> <list> <value>서울시 강남구 역삼동</value> <value>서울시 
@@ -81,45 +48,16 @@
 	사상구 중동동</value> <value>부산 해운대구 앞바다</value> </set> </property> </bean> -->
 
 <!-- Map -->
-<!-- <bean id="collectionMapBean"
-		class="com.mire.ioc.injection.CollectionMapBean">
-		<property name="addressMap">
-			<map>
-				<entry>
-					<key>
-						<value>정상체</value>
-					</key>
-					<value>경상남도 거제시 장평동 </value>
-				</entry>
-				<entry>
-					<key>
-						<value>백혜연</value>
-					</key>
-					<value>경상남도 통영시 대둔동</value>
-				</entry>
-				<entry>
-					<key>
-						<value>백진호</value>
-					</key>
-					<value>경상남도 통영시 욕지도</value>
-				</entry>
-			</map>
-		</property>
-	</bean> -->
-	
-<!-- Properties -->
-<!-- <bean id="collectionProBean"
-		class="com.mire.ioc.injection.CollectionPorBean">
-		<property name="addressPro">
-			<props>
-				<prop key="정 남 길">장남구 리얼동</prop>
-				<prop key="이 정 수">이동구 동진동</prop>
-			</props>
-		</property>
-	</bean>
+<!-- <bean id="collectionMapBean" class="com.mire.ioc.injection.CollectionMapBean"> 
+	<property name="addressMap"> <map> <entry> <key> <value>정상체</value> </key> 
+	<value>경상남도 거제시 장평동 </value> </entry> <entry> <key> <value>백혜연</value> </key> 
+	<value>경상남도 통영시 대둔동</value> </entry> <entry> <key> <value>백진호</value> </key> 
+	<value>경상남도 통영시 욕지도</value> </entry> </map> </property> </bean> -->
 
-</beans>
- -->
+<!-- Properties -->
+<!-- <bean id="collectionProBean" class="com.mire.ioc.injection.CollectionPorBean"> 
+	<property name="addressPro"> <props> <prop key="정 남 길">장남구 리얼동</prop> <prop 
+	key="이 정 수">이동구 동진동</prop> </props> </property> </bean> </beans> -->
 
 
 

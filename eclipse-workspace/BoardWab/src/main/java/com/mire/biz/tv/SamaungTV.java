@@ -1,7 +1,16 @@
 package com.mire.biz.tv;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component("stv")
 public class SamaungTV implements TV {
 	//멤버변수 추가.
+	@Autowired
+//	@Qualifier("sonySpeaker")
+//	@Resources(name ="sonySpeaker") 안됨;
+//	@Resource(name = "sonySpeaker")
 	private Speaker speaker;
 	private int pric;
 	//생성자로 객체주입

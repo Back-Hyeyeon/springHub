@@ -1,7 +1,14 @@
 package com.mire.biz.tv;
 
+import org.springframework.stereotype.Component;
+
+@Component("lgtv")
 public class LgTV implements TV{
 
+	public LgTV() {
+		System.out.println("LgTV() 객체생성");
+	}
+	
 //	public void powOn() {
 //		
 //	}

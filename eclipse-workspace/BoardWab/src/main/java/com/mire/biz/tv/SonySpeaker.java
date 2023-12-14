@@ -1,5 +1,8 @@
 package com.mire.biz.tv;
 
+import org.springframework.stereotype.Component;
+
+
 public class SonySpeaker implements Speaker {
 
 	public SonySpeaker() {

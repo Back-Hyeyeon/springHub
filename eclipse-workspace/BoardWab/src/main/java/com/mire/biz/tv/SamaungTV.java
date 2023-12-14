@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component("stv")
+//@Component("stv")
 public class SamaungTV implements TV {
 	//멤버변수 추가.
-	@Autowired
+//	@Autowired
 //	@Qualifier("sonySpeaker")
 //	@Resources(name ="sonySpeaker") 안됨;
 //	@Resource(name = "sonySpeaker")

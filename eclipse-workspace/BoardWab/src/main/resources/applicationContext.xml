@@ -8,7 +8,7 @@
 
 <!-- component: 객체 , scan: 검색 , base-package: 패키지로 -->
 	<context:component-scan base-package="com.mire.biz"></context:component-scan>
-	<bean class="com.mire.biz.tv.LgSpeaker"></bean>
+	
 
 	
 

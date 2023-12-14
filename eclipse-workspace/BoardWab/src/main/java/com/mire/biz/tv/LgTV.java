@@ -2,7 +2,7 @@ package com.mire.biz.tv;
 
 import org.springframework.stereotype.Component;
 
-@Component("lgtv")
+//@Component("lgtv")
 public class LgTV implements TV{
 
 	public LgTV() {

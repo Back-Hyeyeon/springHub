@@ -12,10 +12,9 @@ public class UserServiceImpl implements UserService {
 	private UserDAO userDAO;
 	
 	
-	public void setUserDAO(UserDAO userDAO) {
-		this.userDAO = userDAO;
-	}
-
+	/* 위에 UserDAO를 관리 하는 것이 있어서 set은 안써도됨
+	 * public void setUserDAO(UserDAO userDAO) { this.userDAO = userDAO; }
+	 */
 
 	@Override
 	public void insertUser(UserVO vo) {

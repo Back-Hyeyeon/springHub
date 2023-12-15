@@ -13,23 +13,23 @@ public class UserServiceClient {
 		UserService userService = (UserService) beanPink.getBean("userService");
 		
 		UserVO vo = new UserVO();
-		vo.setId("aaa");
-		vo.setPassword("1234");
-//		vo.setName("¹é");
-//		vo.setRole("¾Æ¹«°Å³ª");
+		vo.setId("test");
+		vo.setPassword("test123");
+//		vo.setName("í•œê¸€");
+//		vo.setRole("í…ŒìŠ¤íŠ¸");
 		
 		UserVO user = userService.getUser(vo);
 		if(user != null && user.getName() != null) {
-		    System.out.println(user.getName()+"´Ô È¯¿µÇÕ´Ï´Ù.");
+		    System.out.println(user.getName()+"ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.");
 		} else {
-		    System.out.println("·Î±×ÀÎ ½ÇÆĞ");
+		    System.out.println("ë¡œê·¸ì¸ ì•ˆë¨");
 		}
 		
 //		if(user != null) {
-//			System.out.println(user.getName()+"´Ô È¯¿µÇÕ´Ï´Ù.");
+//			System.out.println(user.getName()+"ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.");
 //		}else {
 //			System.out.println(user);
-//			System.out.println("·Î±×ÀÎ ½ÇÆĞ");
+//			System.out.println("ë¡œê·¸ì¸ ì•ˆë¨");
 //		}
 		beanPink.close();
 	}

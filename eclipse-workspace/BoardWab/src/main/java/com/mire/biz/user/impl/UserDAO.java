@@ -22,7 +22,7 @@ public class UserDAO {
 	public UserVO getUser(UserVO vo) {
 		UserVO user = null;
 		try {
-			System.out.println("==> JDBC·Î getUser() ±â´ÉÃ³¸®");
+			System.out.println("==> JDBCëŠ” getUser() í…ŒìŠ¤íŠ¸");
 			coon = JDBCUtil.getConnection();
 			stmt = coon.prepareStatement(USER_GET);
 			stmt.setString(1, vo.getId());
@@ -46,7 +46,7 @@ public class UserDAO {
 	}
 	
 	public void insertUser(UserVO vo) {
-		System.out.println("===> JDBC·Î insert UserVO()");
+		System.out.println("===> JDBCëŠ” insert UserVO()");
 		try {
 			coon = JDBCUtil.getConnection();
 			stmt = coon.prepareStatement(USER_INSERT);

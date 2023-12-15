@@ -13,17 +13,18 @@ public class LogAdvice {
 	
 	//<aop:pointcut expression="execution(* com.mire.biz..*Impl.*(..))" id="allPointCut" />
 	//아래와 같은 기능.
-	@Pointcut("execution(* com.mire.biz..*Impl.*(..))")
-	public void allPointCut() {}
+//	@Pointcut("execution(* com.mire.biz..*Impl.*(..))")
+//	public void allPointCut() {}
 	
 	//<aop:pointcut expression="execution(* com.mire.biz..*Impl.get*(..))" id="getPointCut" />
-	@Pointcut("execution(* com.mire.biz..*Impl.get*(..))")
-	public void getPointCut() {}
+//	@Pointcut("execution(* com.mire.biz..*Impl.get*(..))")
+//	public void getPointCut() {}
 	
 	//<aop:aspect ref="log">
 	//<aop:after method="printLog" pointcut-ref="allPointCut"/> </aop:aspect>
 	//메게변수를 단다. JoinPoint / aspectj
-	@After("getPointCut()")
+	
+	@After("PointCutCommon.allPointCut()")
 	public void printLog(JoinPoint jp) {
 		String name = jp.getSignature().getName();
 		Object[] arge = jp.getArgs();

@@ -5,11 +5,30 @@ package com.mire.biz.common;
 import java.util.Date;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Service;
 
 import com.mire.biz.user.UserVO;
-
+@Service
+@Aspect
 public class AfterReturningAdvice {
 
+	
+	//<aop:pointcut expression="execution(* com.mire.biz..*Impl.*(..))" id="allPointCut" />
+		//아래와 같은 기능.
+//		@Pointcut("execution(* com.mire.biz..*Impl.*(..))")
+//		public void allPointCut() {}
+//		
+		//<aop:pointcut expression="execution(* com.mire.biz..*Impl.get*(..))" id="getPointCut" />
+//		@Pointcut("execution(* com.mire.biz..*Impl.get*(..))")
+//		public void getPointCut() {}
+	
+	
+	
+		@AfterReturning(pointcut = "PointCutCommon.getPointCut()", returning = "retObject")
 	public void afterReturninLog(JoinPoint jp, Object retObject) {
 		String name = jp.getSignature().getName();
 		Object[] arge = jp.getArgs();

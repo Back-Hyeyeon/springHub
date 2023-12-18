@@ -7,11 +7,11 @@ import com.mire.biz.user.UserVO;
 import com.mire.biz.user.impl.UserDAO;
 import com.mire.view.controller.Controller;
 
-public class Logincontroller implements Controller {
+public class LoginController implements Controller{
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-
+		
 		System.out.println("/login.do");
 
 		String id = request.getParameter("id");
@@ -33,4 +33,5 @@ public class Logincontroller implements Controller {
 		}
 	}
 
+	
 }

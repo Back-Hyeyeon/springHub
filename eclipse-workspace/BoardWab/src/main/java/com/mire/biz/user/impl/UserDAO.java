@@ -36,6 +36,7 @@ public class UserDAO {
 				user.setName(rs.getString("NAME"));
 				user.setRole(rs.getString("ROLE"));
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

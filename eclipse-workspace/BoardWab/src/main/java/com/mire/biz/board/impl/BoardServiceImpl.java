@@ -22,10 +22,10 @@ public class BoardServiceImpl implements BoardService {
 		//로깅 분리
 //		System.out.println("［공통 로그］ 비즈니스 로직 수행 전 동작");
 //		log.printLogging();
-		if(vo.getSeq() == 0){
-			throw new IllegalArgumentException("0번 글은 등록할 수 없습니다.");
-		}
-		
+//		if(vo.getSeq() == 0){
+//			throw new IllegalArgumentException("0번 글은 등록할 수 없습니다.");
+//		}
+//		
 		boardDAO.insertBoard(vo);
 		//예외처리 분리
 //		System.out.println("［공통 로그］ 예외처리 동작");

@@ -1,6 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%
 //1. 검색할 게시글 번호 추출
 //2. DB 연동 처리

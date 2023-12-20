@@ -26,7 +26,9 @@ public class BoardDAO{
 	private final String BOARD_UPDATE = "update myboard set title=?, content=? where seq=?";
 	private final String BOARD_DELETE = "delete from myboard where seq=?";
 	private final String BOARD_GET = "select * from myboard where seq=?";
-	private final String BOARD_LIST = "select * from myboard order by seq desc";
+//	private final String BOARD_LIST = "select * from myboard order by seq desc";
+	private final String BOARD_LIST_TITLE = "select * from myboard where title like '%'||?||'%' order by seq desc";
+	private final String BOARD_LIST_CONTENT = "select * from myboard where title CONTENT '%'||?||'%' order by seq desc";
 
 	// CRUD 기능의 메소드 구현
 
@@ -111,7 +113,13 @@ public class BoardDAO{
 		List<BoardVO> boardList = new ArrayList<>();
 		try {
 			conn = JDBCUtil.getConnection();
-			stmt = conn.prepareStatement(BOARD_LIST);
+			if(vo.getSearchCondition().equals("TITLE")) {
+				stmt = conn.prepareStatement(BOARD_LIST_TITLE);
+			}else if(vo.getSearchKeyword().equals("CONTENT")){
+				stmt = conn.prepareStatement(BOARD_LIST_CONTENT);
+			}
+//			stmt = conn.prepareStatement(BOARD_LIST);
+			stmt.setString(1, vo.getSearchKeyword());
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				BoardVO board = new BoardVO();

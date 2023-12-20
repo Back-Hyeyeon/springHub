@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- handlerMapping -->
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/login.do">login</prop>
+				<prop key="/getBoardList.do">getBoardList</prop>
+				<prop key="/logout.do">logout</prop>
+				<prop key="/insertUserController.do">insertUserController</prop>
+				<prop key="/idDoubleCheck.do">idDoubleCheck</prop>
+				<prop key="/updateUserController.do">updateUserController</prop>
+				<prop key="/deleteUserController.do">deleteUserController</prop>
+				<prop key="/getUserList.do">getUserList</prop>
+				<prop key="/getBoard.do">getBoard</prop>
+				<prop key="/insertBoard.do">insertBoard</prop>
+				<prop key="/updateBoard.do">updateBoard</prop>
+				<prop key="/deleteBoard.do">deleteBoard</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- controller 객체 등록 -->
+	<bean id="login" class="com.mire.view.user.LoginController" />
+	<bean id="getBoardList"
+		class="com.mire.view.board.GetBoardListController" />
+	<bean id="logout" class="com.mire.view.user.LogoutController" />
+	<bean id="insertUserController"
+		class="com.mire.view.user.InsertUserController" />
+	<bean id="idDoubleCheck"
+		class="com.mire.view.user.IdDoubleCheckController" />
+	<bean id="updateUserController"
+		class="com.mire.view.user.UpdateUserController" />
+	<bean id="deleteUserController"
+		class="com.mire.view.user.DeleteUserController" />
+	<bean id="getUserList"
+		class="com.mire.view.user.GetUserListController" />
+	<bean id="getBoard" class="com.mire.view.board.GetBoardController" />
+	<bean id="insertBoard"
+		class="com.mire.view.board.InsertBoardController" />
+	<bean id="updateBoard"
+		class="com.mire.view.board.UpdateBoardController" />
+	<bean id="deleteBoard"
+		class="com.mire.view.board.DeleteBoardController" />
+	<!-- ViewResovler 객체 등록 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/board/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+</beans>

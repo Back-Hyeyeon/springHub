@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.aaa.aaa">
+	<logger name="com.mire.biz">
 		<level value="info" />
 	</logger>
 	

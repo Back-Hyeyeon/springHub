@@ -9,26 +9,30 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/common/headerLogin.jsp" />
+ <form action="login.do" method="post">
   <div class="d-flex justify-content-center align-content-center">
-  <main class="form-signin" style="width: 400px; padding-top: 150px;">
-    <form action="login.jsp" method="post">
+  <main class="form-signin" style="width: 400px; padding-top: 50px;">
+  
+   
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
       <div class="form-floating">
-        <input type="text" class="form-control" id="newid" placeholder="newid" name="newid">
+        <input type="text" class="form-control" id="newid" placeholder="newid" name="newid" value="${signup.newid}">
         <label for="newid">Id</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="sign_passwd" placeholder="sign_passwd" name="sign_passwd">
+        <input type="password" class="form-control" id="sign_passwd" placeholder="sign_passwd" name="sign_passwd" value="${signup.sign_passwd}">
         <label for="sign_passwd">Password</label>
       </div>
   
       <div class="checkbox mb-3">
       
       </div>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    </form>
+      <input class="w-100 btn btn-lg" style="background-color: rgb(255, 237, 246);" type="submit" value="Sign in"/>
+      
+   
   </main>
   </div>
-  
+   </form>
 </body>
 </html>

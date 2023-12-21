@@ -81,7 +81,7 @@ public class SignupDAO {
 	}
 	
 	//로그인
-	public void getLogSignuup(SignupVO vo) {
+	public SignupVO getLogSignuup(SignupVO vo) {
 		System.out.println("JDBC getLogSignuup");
 		SignupVO user = null;
 		conn = JDBCUtil.getConnection();
@@ -108,6 +108,7 @@ public class SignupDAO {
 		}finally {
 			JDBCUtil.close(rs, stmt, conn);
 		}
+		return user;
 	}
 	
 	//회원정보 상세보기

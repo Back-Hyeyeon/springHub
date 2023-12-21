@@ -29,8 +29,9 @@
 						<c:forEach items="${conditionMap}" var="data">
 							<option value="${data.value}">${data.key}</option>
 						</c:forEach>
-				</select> <input name="searchKeyword" type="text" /> <input type="submit"
-					value="검색" />
+				</select> 
+				<input name="searchKeyword" type="text" /> 
+				<input type="submit" value="검색" />
 				</td>
 			</tr>
 		</table>
@@ -49,8 +50,9 @@
 			<%-- <% for(BoardVO board : boardList) { %>  --%>
 			<tr>
 				<td>${board.seq}</td>
-				<td align="left"><a href="getBoard.do?seq=${board.seq}">
-						${board.title}</a></td>
+				<td align="left">
+				<a href="getBoard.do?seq=${board.seq}">	${board.title}</a>
+				</td>
 				<td>${board.writer}</td>
 				<td>${board.regDate}</td>
 				<td>${board.cnt}</td>

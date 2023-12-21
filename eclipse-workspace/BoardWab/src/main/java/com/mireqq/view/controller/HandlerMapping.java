@@ -9,27 +9,28 @@ import com.mire.view.board.GetBoardListController;
 import com.mire.view.board.InsertBoardController;
 import com.mire.view.board.UpDateBoardController;
 import com.mire.view.user.LogOutController;
-import com.mire.view.user.LoginController;
+
+import com.mire.view.user.Logincontroller;
 
 
 public class HandlerMapping {
 
 	private Map<String, Controller> mappings;
 
-	// 생성자.
+	// �깮�꽦�옄.
 	public HandlerMapping() {
 		
 		mappings = new HashMap<String, Controller>();
 		
 		
-		mappings.put("/login.do", new LoginController());
+		mappings.put("/login.do", new Logincontroller());
 		mappings.put("/getBoardList.do", new GetBoardListController());
 		mappings.put("/getBoard.do", new GetBoardController());
 		mappings.put("/insertBoard.do", new InsertBoardController());
 		mappings.put("/deleteBoard.do", new DeleteBoardController());
 		mappings.put("/updateBoard.do", new UpDateBoardController());
 		mappings.put("/logout.do", new LogOutController());
-		//. 나머지 만들기 
+		//. �굹癒몄� 留뚮뱾湲� 
 		
 	}
 

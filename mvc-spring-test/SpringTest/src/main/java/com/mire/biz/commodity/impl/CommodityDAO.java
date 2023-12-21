@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.mire.biz.commodity.CommodityService;
 import com.mire.biz.commodity.CommodityVO;
 import com.mire.biz.common.JDBCUtil;
 

@@ -7,7 +7,7 @@ import com.mire.biz.user.UserVO;
 import com.mire.biz.user.impl.UserDAO;
 import com.mireqq.view.controller.Controller;
 
-public class LoginController implements Controller{
+public class Logincontroller implements Controller{
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -17,7 +17,7 @@ public class LoginController implements Controller{
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 
-		// 2. DB 연동 처리
+		// 2. DB �뿰�룞 泥섎━
 		UserVO vo = new UserVO();
 		vo.setId(id);
 		vo.setPassword(password);
@@ -25,7 +25,7 @@ public class LoginController implements Controller{
 		UserDAO userDAO = new UserDAO();
 		UserVO user = userDAO.getUser(vo);
 
-		// 3. 화면 네비게이션
+		// 3. �솕硫� �꽕鍮꾧쾶�씠�뀡
 		if (user != null) {
 			return "getBoardList.do";
 		} else {

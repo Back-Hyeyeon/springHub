@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mire.biz.user.UserVO;
 import com.mire.biz.user.impl.UserDAO;
-import com.mire.view.controller.Controller;
+import com.mireqq.view.controller.Controller;
 
 public class LoginController implements Controller{
 

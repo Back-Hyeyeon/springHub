@@ -10,7 +10,7 @@ import com.mire.biz.board.BoardVO;
 import com.mire.biz.board.impl.BoardDAO;
 import com.mire.biz.user.UserVO;
 import com.mire.biz.user.impl.UserDAO;
-import com.mire.view.controller.Controller;
+import com.mireqq.view.controller.Controller;
 
 public class UpDateBoardController implements Controller {
 

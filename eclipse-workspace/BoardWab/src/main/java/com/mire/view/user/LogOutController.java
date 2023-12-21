@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import com.mire.biz.user.UserVO;
 import com.mire.biz.user.impl.UserDAO;
-import com.mire.view.controller.Controller;
+import com.mireqq.view.controller.Controller;
 
 public class LogOutController implements Controller {
 

@@ -8,7 +8,7 @@
 <context:component-scan base-package="com.mire.view"></context:component-scan>
 
 <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-<property name="prefix" value="/WEB-INF/commodity/"/>
+<property name="prefix" value="/WEB-INF/common/"/>
 <property name="suffix" value=".jsp"/>
 </bean>
 

@@ -21,7 +21,7 @@ public class DispstcherServlet extends HttpServlet {
     }
 
 	@Override
-	public void init() throws ServletException {
+	public void init(ServletConfig config) throws ServletException {
 		handlerMapping = new HandlerMapping();
 		viewResolver = new ViewResolver();
 		viewResolver.setPrefix("./");

@@ -16,9 +16,9 @@
 <body>
   
 
-  <div class="content mt-4" >
-      <div class="opacit ">
-       <h2 style="color: rgb(243, 132, 255);">The NULL</h2>
+  <div class="d-flex justify-content-center mt-4 " >
+      <div>
+       <h2 style="color: rgb(243, 132, 255);  width: 150px;">The NULL</h2>
       </div>
 
       <div class="content-fixed top" style="margin-bottom: 0px;">
@@ -72,9 +72,28 @@
           </li>
         </ul>
         <ul class="Menu1" style="margin-bottom: 0px;">
-          <li class="dropbox2 "> <span>${userName} 님</span></li>
-          <li class="dropbox2 "><a href="logout.do">Logout</a></li>
+          <li class="dropbox2 "> 
+	          <c:choose>
+	          	<c:when test="${userName!=null}">
+	         		 ${userName} 님
+	         		 </c:when>
+	         		 <c:otherwise>
+	          			<a href="loginPage.do"> 로그인 </a>
+	          		</c:otherwise>
+	          </c:choose>
+          </li>
+          <li class="dropbox2 ">
+          <c:choose>
+	          	<c:when test="${userName!=null}">
+	         		 <a href="logout.do">Logout</a>
+	         		 </c:when>
+	         		 <c:otherwise>
+	          			<a href="#">회원가입</a>
+	          		</c:otherwise>
+	          </c:choose>
+          </li>
         </ul>
        </div>
       </div>
-      <hr>
+      
+     <hr class="m-0">

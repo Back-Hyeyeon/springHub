@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="login.do">login.do</a>
+<a href="login.do">login.do</a><br>
+<a href="dataTransform.do">글목록 변환 처리</a><br>
 
 </body>
 </html>

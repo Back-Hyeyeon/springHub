@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="header.jsp"/> 
+
+<jsp:include page="header.jsp"/>
+<!-- <a href="mainPage.do">mainPage.do</a> -->
 </body>
 </html>

@@ -28,7 +28,7 @@ public class BoardDAO{
 	private final String BOARD_GET = "select * from myboard where seq=?";
 //	private final String BOARD_LIST = "select * from myboard order by seq desc";
 	private final String BOARD_LIST_TITLE = "select * from myboard where title like '%'||?||'%' order by seq desc";
-	private final String BOARD_LIST_CONTENT = "select * from myboard where title CONTENT '%'||?||'%' order by seq desc";
+	private final String BOARD_LIST_CONTENT = "select * from myboard where CONTENT '%'||?||'%' order by seq desc";
 
 	// CRUD 기능의 메소드 구현
 

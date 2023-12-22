@@ -12,44 +12,60 @@ import com.mire.biz.signup.SignupVO;
 import com.mire.biz.signup.impl.SignupDAO;
 
 @Controller
-@SessionAttributes("signup")
+//@SessionAttributes("signup")
 public class SignupController {
-	
-	
-	
-	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
-	public String loginView(@ModelAttribute("signup") SignupVO vo) {
-		System.out.println("/login.do");
-		
-		vo.setNewid("test");
-		vo.setSign_passwd("test123");
 
-		return "login.jsp";
-	}
-	
-	
-	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
-	public String login(SignupVO vo,SignupDAO signupDAO , HttpSession session) {
+//	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
+//	public String loginView(@ModelAttribute("signup") SignupVO vo) {
+//		System.out.println("화면이동");
+//		
+//		vo.setNewid("test");
+//		vo.setSign_passwd("test123");
+//
+//		return "login.jsp";
+//	}
+//	
+	// , method = RequestMethod.POST
+	@RequestMapping(value = "/login.do")
+	public String login(SignupVO vo, SignupDAO signupDAO, HttpSession session) {
 		System.out.println("/login.do");
-		if(vo.getNewid() == null || vo.getNewid().equals("")) {
-			throw new IllegalArgumentException("");
-		}
-		
-		
+		/*
+		 * if(vo.getNewid() == null || vo.getNewid().equals("")) { throw new
+		 * IllegalArgumentException(""); }
+		 */
+		System.out.println("Newid : " + vo.getNewid());
+
 		SignupVO signup = signupDAO.getLogSignuup(vo);
+		System.out.println("signup : " + signup);
 		if (signup != null) {
+
 			session.setAttribute("userName", signup.getNickname());
-			return "redirect:mainPage.do";
+
+			return "mainPage";
 		} else {
 			System.out.println("login");
-			return "login";
+			System.out.println("22login");
+			return "loginPage";
 		}
 	}
-	
+
+	@RequestMapping(value = "/loginPage.do")
+	public String loginPage(SignupVO vo, SignupDAO signupDAO, HttpSession session) {
+		System.out.println("/loginPage.do");
+		return "loginPage";
+	}
+
 	@RequestMapping(value = "/logout.do")
 	public String logout(HttpSession session) {
 		System.out.println("/logout.do");
 		session.invalidate();
-		return "redirect:login.do";
+		return "mainPage";
+	}
+
+	@RequestMapping(value = "/mainPage.do")
+	public String mainPage(HttpSession session) {
+		System.out.println("/mainPage.do");
+		
+		return "mainPage";
 	}
 }

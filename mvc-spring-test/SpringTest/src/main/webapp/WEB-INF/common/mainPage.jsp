@@ -7,9 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="headerLogin.jsp"/> 
-
-
+<form action="mainPage.do" method="post">
+<jsp:include page="headerLogin.jsp"/>
+<%-- <%@ include file="headerLogin.jsp" %> --%>
+${userName}
+</form>
 
 
 

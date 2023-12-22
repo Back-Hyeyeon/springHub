@@ -3,6 +3,7 @@ package com.mire.view.board;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -47,6 +49,25 @@ public class BoardController {
 	}
 
 	// 글 수정
+	@RequestMapping("/dataTransform.do")
+	@ResponseBody
+	public List<BoardVO> dataTransform(BoardVO vo) {
+		System.out.println("dataTransform");
+		// 검색정보 null체크
+				if (vo.getSearchCondition() == null) {
+					vo.setSearchCondition("TITLE");
+				}
+				if (vo.getSearchKeyword() == null) {
+					vo.setSearchKeyword("");
+				}
+				// String searchCondition = request.getParameter("searchCondition");
+//				String searchKeyword = request.getParameter("searchKeyword");
+//				System.out.println(condition);
+//				System.out.println(keyword);
+				List<BoardVO> boardList = boardService.getBoardList(vo);
+				return boardList;
+	}
+	
 	@RequestMapping("/updateBoard.do")
 	public String updateBoard(@ModelAttribute("board") BoardVO vo) {
 		System.out.println("/updateBoard.do");

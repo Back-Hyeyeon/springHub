@@ -22,7 +22,7 @@ public class SignupDAO {
 	
 	public final String SIGNUP_UPDATE = "update signup set nickname=?, username=?, sign_passwd=?, email=?, phonenum=? where newid=?";
 	public final String SIGNUP_DELETE = "delete from signup where newid=? ";
-	public final String SIGNUP_GETLOG = "select * from signup where newid=? and sign_passwd=?";
+	public final String SIGNUP_GETLOG = "SELECT * FROM  SIGNUP WHERE NEWID=? AND SIGN_PASSWD=?";
 	private final String SIGNUP_GET = "select * from signup where newid=?";
 	
 	
@@ -86,13 +86,14 @@ public class SignupDAO {
 		SignupVO user = null;
 		conn = JDBCUtil.getConnection();
 		try {
-			stmt = conn.prepareStatement(SIGNUP_GETLOG);
-			stmt.setString(1, vo.getNewid());
-			stmt.setString(2, vo.getSign_passwd());
+			stmt = conn.prepareStatement("Select * from signup");
+//			stmt.setString(1, vo.getNewid());
+//			stmt.setString(2, vo.getSign_passwd());
 			rs = stmt.executeQuery();
-			
+			System.out.println("rs : ");
 			if(rs.next() == true) {
 				user = new SignupVO();
+				System.out.println("rs : "+rs.getString("NEWID"));
 				user.setNewid(rs.getString("NEWID"));
 				user.setNickname(rs.getString("NICKNAME"));
 				user.setUsername(rs.getString("USERNAME"));
@@ -103,7 +104,6 @@ public class SignupDAO {
 				user.setBankaccount(rs.getString("BANKACCOUNT"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			JDBCUtil.close(rs, stmt, conn);

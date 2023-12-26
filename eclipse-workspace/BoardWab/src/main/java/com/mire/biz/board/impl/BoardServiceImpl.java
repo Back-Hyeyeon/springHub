@@ -7,13 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.mire.biz.board.BoardService;
 import com.mire.biz.board.BoardVO;
-import com.mire.biz.common.LogAdvice;
-import com.mire.biz.common.LogAdvice2;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {
-@Autowired
-	private BoardDAO boardDAO;
+	
+	@Autowired
+	private BoardDAOMybaties boardDAO;
 
 	
 	@Override

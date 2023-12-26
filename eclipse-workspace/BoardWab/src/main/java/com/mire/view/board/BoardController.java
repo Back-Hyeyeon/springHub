@@ -35,7 +35,6 @@ public class BoardController {
 //글등록
 	@RequestMapping("/insertBoard.do")
 	public String insertBoard(BoardVO vo) throws IllegalStateException, IOException {
-		boardService.insertBoard(vo);
 		MultipartFile uploadFile = vo.getUploadFile();
 		//업로드된 파일이 있다면 서버저장장치레 저장한다.
 		if(!uploadFile.isEmpty()) {

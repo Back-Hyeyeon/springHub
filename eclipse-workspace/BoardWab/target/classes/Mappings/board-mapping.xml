@@ -21,6 +21,9 @@
 	<select id="getBoard" parameterType="board" resultType="board">
 		select * from myboard where seq=#{seq}
 	</select>
+	<select id="getBoardList" parameterType="board" resultType="board">
+		select * from myboard order by seq desc
+	</select>
 	<select id="getBoardList_t" parameterType="board" resultType="board">
 			<![CDATA[
 		select * from myboard

@@ -24,7 +24,7 @@
 	</bean>
 
 	<!-- Exception 처리 -->
-	<bean
+	<!-- <bean
 		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"
 		id="exceptionResolver">
 		<property name="exceptionMappings">
@@ -36,7 +36,7 @@
 		</property>
 		<property name="defaultErrorView"
 			value="common/exceptionError" />
-	</bean>
+	</bean> -->
 
 	<!-- 1. 다국어처리 -->
 	<bean id="messageSource"

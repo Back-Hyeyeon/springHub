@@ -1,5 +1,5 @@
 
-<%@page import="com.mire.biz.board.BoardVO"%>
+<%@page import="com.mire.biz.board.BoardVO_back"%>
 <%@page import="com.mire.biz.board.impl.BoardDAO"%>
 <%@page contentType="text/html; charset=utf-8"%>
 

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.mire.biz.board.BoardVO;
+import com.mire.biz.board.BoardVO_back;
 import com.mire.biz.board.impl.BoardDAO;
 import com.mire.biz.user.UserVO;
 import com.mire.biz.user.impl.UserDAO;
@@ -76,7 +76,7 @@ public class DispatcherServlet_backup extends HttpServlet {
 			String writer = request.getParameter("writer");
 			String content = request.getParameter("content");
 			// 2. DB 연동 처리
-			BoardVO vo = new BoardVO();
+			BoardVO_back vo = new BoardVO_back();
 			vo.setTitle(title);
 			vo.setWriter(writer);
 			vo.setContent(content);
@@ -97,7 +97,7 @@ public class DispatcherServlet_backup extends HttpServlet {
 			String seq = request.getParameter("seq");
 
 			// 2. DB 연동 처리
-			BoardVO vo = new BoardVO();
+			BoardVO_back vo = new BoardVO_back();
 			vo.setTitle(title);
 			vo.setContent(content);
 			vo.setSeq(Integer.parseInt(seq));
@@ -113,7 +113,7 @@ public class DispatcherServlet_backup extends HttpServlet {
 			//1. 사용자 입력 정보 추출
 			String seq = request.getParameter("seq"); 
 			//2. DB 연동 처리
-			BoardVO vo = new BoardVO();
+			BoardVO_back vo = new BoardVO_back();
 			vo.setSeq(Integer.parseInt(seq)); 
 
 			BoardDAO boardDAO = new BoardDAO();
@@ -127,11 +127,11 @@ public class DispatcherServlet_backup extends HttpServlet {
 
 			String seq = request.getParameter("seq");
 			// 2. DB 연동 처리
-			BoardVO vo = new BoardVO();
+			BoardVO_back vo = new BoardVO_back();
 			vo.setSeq(Integer.parseInt(seq));
 
 			BoardDAO boardDAO = new BoardDAO();
-			BoardVO board = boardDAO.getBoard(vo);
+			BoardVO_back board = boardDAO.getBoard(vo);
 			// 3. 응답 화면 구성
 			HttpSession session = request.getSession();
 			session.setAttribute("board", board);
@@ -144,9 +144,9 @@ public class DispatcherServlet_backup extends HttpServlet {
 			System.out.println("/getBoardList.do");
 			// 1. 사용자 입력 정보 추출(검색 기능윤 나중에 구현)
 			// 2. DB 연동 처리
-			BoardVO vo = new BoardVO();
+			BoardVO_back vo = new BoardVO_back();
 			BoardDAO boardDAO = new BoardDAO();
-			List<BoardVO> boardList = boardDAO.getBoardList(vo);
+			List<BoardVO_back> boardList = boardDAO.getBoardList(vo);
 			HttpSession session = request.getSession();
 			session.setAttribute("boardList", boardList);
 			// List<BoardVO> boardList = (List)session.getAttribute("boardList");

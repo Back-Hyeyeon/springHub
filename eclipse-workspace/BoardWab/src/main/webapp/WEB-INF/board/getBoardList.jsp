@@ -1,6 +1,6 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@page import="java.util.List"%>
-<%@page import="com.mire.biz.board.BoardVO"%>
+<%@page import="com.mire.biz.board.BoardVO_back"%>
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

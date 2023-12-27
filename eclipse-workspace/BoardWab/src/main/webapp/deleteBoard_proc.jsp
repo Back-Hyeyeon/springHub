@@ -1,5 +1,5 @@
 <%@page import="com.mire.biz.board.impl.BoardDAO"%>
-<%@page import="com.mire.biz.board.BoardVO"%>
+<%@page import="com.mire.biz.board.BoardVO_back"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%

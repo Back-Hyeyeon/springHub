@@ -9,7 +9,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.mire.biz.board.BoardService;
-import com.mire.biz.board.BoardVO;
+import com.mire.biz.board.BoardVO_back;
 import com.mire.biz.common.JDBCUtil;
 
 @Repository("boardDAO")
@@ -33,7 +33,7 @@ public class BoardDAO{
 	// CRUD 기능의 메소드 구현
 
 	// 글 등록
-	public void insertBoard(BoardVO vo) {
+	public void insertBoard(BoardVO_back vo) {
 		System.out.println("===> JDBC로 insertBoard() 기능 처리");
 		try {
 			conn = JDBCUtil.getConnection();
@@ -50,7 +50,7 @@ public class BoardDAO{
 	}
 
 	// 글 수정
-	public void updateBoard(BoardVO vo) {
+	public void updateBoard(BoardVO_back vo) {
 		System.out.println("===> JDBC로 updateBoard() 기능 처리");
 		try {
 			conn = JDBCUtil.getConnection();
@@ -67,7 +67,7 @@ public class BoardDAO{
 	}
 
 	// 글 삭제
-	public void deleteBoard(BoardVO vo) {
+	public void deleteBoard(BoardVO_back vo) {
 		System.out.println("===> JDBC로 deleteBoard() 기능 처리");
 		try {
 			conn = JDBCUtil.getConnection();
@@ -82,16 +82,16 @@ public class BoardDAO{
 	}
 
 	// 글 상세 조회
-	public BoardVO getBoard(BoardVO vo) {
+	public BoardVO_back getBoard(BoardVO_back vo) {
 		System.out.println("===> JDBC로 getBoard() 기능 처리");
-		BoardVO board = null;
+		BoardVO_back board = null;
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(BOARD_GET);
 			stmt.setInt(1, vo.getSeq());
 			rs = stmt.executeQuery();
 			if (rs.next()) {
-				board = new BoardVO();
+				board = new BoardVO_back();
 				board.setSeq(rs.getInt("SEQ"));
 				board.setTitle(rs.getString("TITLE"));
 				board.setWriter(rs.getString("WRITER"));
@@ -108,9 +108,9 @@ public class BoardDAO{
 	}
 
 	// 글 목록 조회
-	public List<BoardVO> getBoardList(BoardVO vo) {
+	public List<BoardVO_back> getBoardList(BoardVO_back vo) {
 		System.out.println("===> JDBC로 getBoardList() 기능 처리");
-		List<BoardVO> boardList = new ArrayList<>();
+		List<BoardVO_back> boardList = new ArrayList<>();
 		try {
 			conn = JDBCUtil.getConnection();
 			if(vo.getSearchCondition().equals("TITLE")) {
@@ -122,7 +122,7 @@ public class BoardDAO{
 			stmt.setString(1, vo.getSearchKeyword());
 			rs = stmt.executeQuery();
 			while (rs.next()) {
-				BoardVO board = new BoardVO();
+				BoardVO_back board = new BoardVO_back();
 				board.setSeq(rs.getInt("SEQ"));
 				board.setTitle(rs.getString("TITLE"));
 				board.setWriter(rs.getString("WRITER"));

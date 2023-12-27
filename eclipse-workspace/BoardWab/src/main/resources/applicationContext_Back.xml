@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- component: 객체 , scan: 검색 , base-package: 패키지로 -->
+	<context:component-scan
+		base-package="com.mire.biz"></context:component-scan>
+
+	<!-- AOP@ -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+	<!-- DataSourc 등록 -->
+
+	<context:property-placeholder
+		location="classpath:db.properties" />
+
+	<bean id="dataSource"
+		class="org.apache.tomcat.dbcp.dbcp2.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName"
+			value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<!-- spring과 JPA에서 연동설정 -->
+	<bean id="jpaVendorAdapter"
+		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+	</bean>
+	<bean id="entityManagerFactoryBean"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
+		<property name="dataSource" ref="dataSource" />
+
+	</bean>
+
+	<!-- spring과 mybatis에서 연동설정 -->
+
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation"
+			value="classpath:sql-map-config.xml" />
+		<!-- 데이터소스 연결 -->
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!--mybatis contart 추출 -->
+	<bean class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSession"></constructor-arg>
+	</bean>
+
+	<!-- jdbcTemplate 등록 -->
+	<bean class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+<!-- 	<bean id="txManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean> -->
+	
+	<bean id="txManager"	class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="*" rollback-for="Exception" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="txPointcut"
+			expression="execution(*com.mire.biz..*Impl.*(..))" />
+
+		<aop:advisor pointcut-ref="txPointcut"	advice-ref="txAdvice" />
+	</aop:config>
+
+
+</beans>
+
+
+
+
+
+
+<!-- AOP -->
+<!-- 어드바이스 -->
+<!-- <bean id="log" class="com.mire.biz.common.LogAdvice"></bean> <bean id="log2" 
+	class="com.mire.biz.common.LogAdvice2"></bean> <bean id="log3" class="com.mire.biz.common.AfterReturningAdvice"></bean> 
+	<bean id="log4" class="com.mire.biz.common.AfterThrowingAdvice"></bean> <bean 
+	id="log5" class="com.mire.biz.common.AroundAdvice"></bean> pointCut 을 만듬. 
+	impl 만 적용 <aop:config> <aop:pointcut expression="execution(* com.mire.biz..*Impl.*(..))" 
+	id="allPointCut" /> <aop:pointcut expression="execution(* com.mire.biz..*Impl.get*(..))" 
+	id="getPointCut" /> aspectJ 합하기 5가지 방법 <aop:aspect ref="log4"> <aop:after-throwing 
+	method="afterThrowingAdvice" pointcut-ref="allPointCut" throwing="exceptObj"/> 
+	</aop:aspect> </aop:config> -->
+
+
+
+
+
+
+<!-- 어노테이션과 XML 설정 병행 -->
+<!-- <context:component-scan base-package="com.mire.biz"></context:component-scan> 
+	<bean class="com.mire.biz.tv.LgSpeaker"></bean> -->
+
+
+<!-- 컬렉션프레임워크 xml -->
+<!-- List -->
+<!-- <bean id="collectionListBean" class="com.mire.ioc.injection.CollectionListBean" 
+	> <property name="addressList"> <list> <value>서울시 강남구 역삼동</value> <value>서울시 
+	성동구 행당동</value> </list> </property> </bean> -->
+
+<!-- Set -->
+<!-- <bean id="collectionListBean" class="com.mire.ioc.injection.CollectionListBean" 
+	> <property name="addressList"> <set value-type="java.lang.String"> <value>부산 
+	사상구 중동동</value> <value>부산 해운대구 앞바다</value> </set> </property> </bean> -->
+
+<!-- Map -->
+<!-- <bean id="collectionMapBean" class="com.mire.ioc.injection.CollectionMapBean"> 
+	<property name="addressMap"> <map> <entry> <key> <value>정상체</value> </key> 
+	<value>경상남도 거제시 장평동 </value> </entry> <entry> <key> <value>백혜연</value> </key> 
+	<value>경상남도 통영시 대둔동</value> </entry> <entry> <key> <value>백진호</value> </key> 
+	<value>경상남도 통영시 욕지도</value> </entry> </map> </property> </bean> -->
+
+<!-- Properties -->
+<!-- <bean id="collectionProBean" class="com.mire.ioc.injection.CollectionPorBean"> 
+	<property name="addressPro"> <props> <prop key="정 남 길">장남구 리얼동</prop> <prop 
+	key="이 정 수">이동구 동진동</prop> </props> </property> </bean> </beans> -->
+
+
+
+
+
+
+<!-- 1번 -->
+<!-- <bean id="tv" class="com.mire.biz.tv.LgTV" init-method="initMethod" 
+	destroy-method="destroyMethod" /> <bean id="stv" class="com.mire.biz.tv.SamaungTV"/> 
+	<bean id="sonySpeaker" class="com.mire.biz.tv.SonySpeaker" /> <bean id="lgSpeaker" 
+	class="com.mire.biz.tv.LgSpeaker" /> -->
+
+
+<!-- p:"이것은 잘 사용 안한다." -->
+<!-- <bean id="stv" class="com.mire.biz.tv.SamaungTV" p:speaker-ref="sonySpeaker" 
+	p:pric="110000"/> -->
+
+
+<!-- 생성자 ioc -->
+<!-- <bean id="stv" class="com.mire.biz.tv.SamaungTV" > 생성자에 들어가는 constructor-arg(객체를 
+	참조하는것 ref = new SamaungTV(new SonySpeaker())이것과 같다.) 생성자에 들어가는 constructor-arg(값를 
+	참조하는것 value) <constructor-arg ref="lgSpeaker"></constructor-arg> <constructor-arg 
+	value="100000"></constructor-arg> </bean> -->
+
+<!-- set ioc -->
+<!-- <bean id="stv" class="com.mire.biz.tv.SamaungTV" > set ioc (property) 
+	객체를 넣을 때는 ref 값을 넣을때 value <property name="speaker" ref="sonySpeaker"></property> 
+	<property name="pric" value="123456789"></property> </bean> -->
+
+<!-- 1번 end -->

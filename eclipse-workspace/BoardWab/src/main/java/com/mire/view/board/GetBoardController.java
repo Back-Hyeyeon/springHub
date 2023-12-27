@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.mire.biz.board.BoardVO;
+import com.mire.biz.board.BoardVO_back;
 import com.mire.biz.board.impl.BoardDAO;
 import com.mire.biz.user.UserVO;
 import com.mire.biz.user.impl.UserDAO;
@@ -21,11 +21,11 @@ public class GetBoardController implements Controller {
 
 		String seq = request.getParameter("seq");
 		// 2. DB 연동 처리
-		BoardVO vo = new BoardVO();
+		BoardVO_back vo = new BoardVO_back();
 		vo.setSeq(Integer.parseInt(seq));
 
 		BoardDAO boardDAO = new BoardDAO();
-		BoardVO board = boardDAO.getBoard(vo);
+		BoardVO_back board = boardDAO.getBoard(vo);
 		// 3. 응답 화면 구성
 		HttpSession session = request.getSession();
 		session.setAttribute("board", board);

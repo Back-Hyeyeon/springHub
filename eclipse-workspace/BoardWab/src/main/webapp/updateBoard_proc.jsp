@@ -1,5 +1,5 @@
 <%@page import="com.mire.biz.board.impl.BoardDAO"%>
-<%@page import="com.mire.biz.board.BoardVO"%>
+<%@page import="com.mire.biz.board.BoardVO_back"%>
 <%@page contentType="text/html; charset=utf-8"%>
 <%
 /* // 1. 사용자 입력 정보 추출

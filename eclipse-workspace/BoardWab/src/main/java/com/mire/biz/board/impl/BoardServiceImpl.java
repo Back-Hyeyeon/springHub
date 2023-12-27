@@ -12,7 +12,7 @@ import com.mire.biz.board.BoardVO;
 public class BoardServiceImpl implements BoardService {
 	
 	@Autowired
-	private BoardDAOMybaties boardDAO;
+	private BoardDAOJPA boardDAO;
 
 	
 	@Override
